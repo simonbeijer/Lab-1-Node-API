@@ -1,0 +1,24 @@
+{
+  "name": "Lab-1-Node-API",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonbeijer/Lab-1-Node-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simonbeijer/Lab-1-Node-API/issues"
+  },
+  "homepage": "https://github.com/simonbeijer/Lab-1-Node-API#readme",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "express": "^4.17.1"
+  }
+}
