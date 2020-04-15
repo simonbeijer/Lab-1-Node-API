@@ -16,7 +16,26 @@ POST http://localhost:3000/guitars
 Content-Type: application/json
 
 {
-    "id": "3",
+    "id": 3,
     "name": "Gibson",
     "color": "Sun-burst"
 }
+
+###
+
+PUT http://localhost:3000/guitars/1
+Content-Type: application/json
+
+{   
+    "name": "Gibson",
+    "color": "Sun-burst"
+}
+
+###
+
+
+DELETE http://localhost:3000/guitars/1
+Content-Type: application/json
+
+
+###

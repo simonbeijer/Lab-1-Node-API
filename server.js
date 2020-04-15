@@ -25,10 +25,10 @@ const guitars = [{
 
 
 
+
+
 // All routes
-
 // Get 
-
 // All guitas
 app.get('/guitars', (req, res) => {
     res.json(guitars);
@@ -53,8 +53,7 @@ app.get('/guitars/:guitarId', (req, res) => {
 
 
 // Post
-
-// Add guitar
+// Add guitar add
 app.post('/guitars', (req, res) => {
     const guitar = {
         id: req.body.id,
@@ -67,17 +66,47 @@ app.post('/guitars', (req, res) => {
     } else {
         guitars.push(guitar);
         res.status(201).send(guitar);
-
     }
 })
 
 // Put
-
+// Update guitar
+app.put('/guitars/:guitarId', (req, res) => {
+    const foundGuitar = guitars.find((guitar) => {
+        if (guitar.id.toString() === req.params.guitarId) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+    if (!foundGuitar) {
+        res.status(404).send();
+    } else {
+        console.log(req.params.name)
+        foundGuitar.name = req.body.name
+        foundGuitar.color = req.body.color
+        res.send(foundGuitar)
+    }
+})
 
 // Delete
-
-
-
+// Delete guitar
+app.delete('/guitars/:guitarId', (req, res) => {
+    const foundGuitar = guitars.find((guitar) => {
+        if (guitar.id.toString() === req.params.guitarId) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+    if (!foundGuitar) {
+        res.status(404).send();
+    } else {
+        const index = guitars.indexOf(foundGuitar)
+        guitars.splice(index, 1)
+        res.send(foundGuitar)
+    }
+})
 
 
 

@@ -36,8 +36,6 @@ function searchId() {
     }).then((color) => {
         printGuitarId(color)
     })
-
-
 }
 
 function printGuitarId(color) {
