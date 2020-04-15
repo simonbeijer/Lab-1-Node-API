@@ -1,3 +1,21 @@
+
 GET http://localhost:3000/
 
 ###
+
+GET http://localhost:3000/guitars
+
+###
+
+GET http://localhost:3000/guitars/1
+
+
+###
+
+POST http://localhost:3000/guitars
+Content-Type: application/json
+
+{
+    "name": "Gibson",
+    "color": "Sun-burst"
+}

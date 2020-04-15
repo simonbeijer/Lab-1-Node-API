@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="logic.js"></script>
+    <title>Lab-1</title>
+</head>
+
+<body style="background-color: #c7d7d8">
+    <h1>API</h1>
+
+    <div id='guitars'></div>
+    <br>
+    <input id="searchId" type="text">
+    <button onclick="searchId()">Sök Gitarr</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="foundGuitarDiv"></div>
+    <div>
+
+        <input id="guitarName" type="text" required>
+        <input id="guitarColor" type="text" required>
+        <input onclick="addGuitar()" type="submit" value="Lägg till">
+    </div>
+</body>
+
+</html>
