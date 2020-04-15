@@ -36,8 +36,8 @@ app.get('/guitars', (req, res) => {
 
 // One guitar
 app.get('/guitars/:guitarId', (req, res) => {
-    const foundGuitar = guitars.find((guitars) => {
-        if (guitars.id.toString() === req.params.guitarId.toString()) {
+    const foundGuitar = guitars.find((guitar) => {
+        if (guitar.id.toString() === req.params.guitarId) {
             return true;
         } else {
             return false;
@@ -47,10 +47,8 @@ app.get('/guitars/:guitarId', (req, res) => {
     if (!foundGuitar) {
         res.status(404).send();
     } else {
-        console.log("server res working")
-        res.status(201).send(foundGuitar);
+        res.send(foundGuitar);
     }
-
 });
 
 
@@ -59,7 +57,7 @@ app.get('/guitars/:guitarId', (req, res) => {
 // Add guitar
 app.post('/guitars', (req, res) => {
     const guitar = {
-        id: guitars.length + 1,
+        id: req.body.id,
         name: req.body.name,
         color: req.body.color
     };
