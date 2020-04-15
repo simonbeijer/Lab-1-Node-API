@@ -26,22 +26,21 @@ function printGuitars(guitars) {
 
 function searchId() {
     const id = document.getElementById('searchId').value
-    console.log(id)
-    
-    fetch('http://localhost:3000/guitars/' + id).then((response) => {
+
+    fetch('http://127.0.0.1:3000/guitars/' + id).then((response) => {
         if(response.status === 404) {
-            printColor()
+            printGuitarId()
         } else {
             return response.json()
         }
     }).then((color) => {
-        printColor(color)
+        printGuitarId(color)
     })
 
 
 }
 
-function printColor(color) {
+function printGuitarId(color) {
     let foundGuitarDiv = document.getElementById('foundGuitarDiv');
     foundGuitarDiv.innerHTML = '';
 
@@ -63,3 +62,25 @@ function printColor(color) {
         foundGuitarDiv.appendChild(errorResponese)
     }
 };
+
+
+
+// function addGuitar() {
+//         const id = document.getElementById('guitarId').value
+//         const name = document.getElementById('guitarName').value
+//         const color = document.getElementById('guitarColor').value
+
+//         fetch('http://127.0.0.1:3000/api/guitars').then((response) => {
+//             if(response.status === 404) {
+
+    
+//             } else {
+//                 return response.json()
+//             }
+//         }).then(() => {
+    
+//         })
+    
+    
+//     }
+    

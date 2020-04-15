@@ -23,10 +23,12 @@
     <br>
     <div id="foundGuitarDiv"></div>
     <div>
-
-        <input id="guitarName" type="text" required>
-        <input id="guitarColor" type="text" required>
-        <input onclick="addGuitar()" type="submit" value="Lägg till">
+        <form method="POST" action="/guitars" >
+            <input id="guitarId" type="text" required>
+            <input id="guitarName" type="text" required>
+            <input id="guitarColor" type="text" required>
+            <input type="submit" value="Lägg till gitarr">
+        </form>
     </div>
 </body>
 
