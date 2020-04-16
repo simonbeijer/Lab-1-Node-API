@@ -95,7 +95,7 @@ app.put('/guitars/:guitarId', (req, res) => {
 
 // Delete
 // Delete guitar
-app.delete('/guitars/:guitarId', (req, res) => {
+app.delete('/guitars/delete/:guitarId', (req, res) => {
     const foundGuitar = guitars.find((guitar) => {
         if (guitar.id.toString() === req.params.guitarId) {
             return true;

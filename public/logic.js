@@ -1,9 +1,9 @@
-window.addEventListener('load', () => {
-    const form = document.getElementById('form1')
-    form.addEventListener('submit', addGuitar)
-    //....
-    //....
-})
+// window.addEventListener('load', () => {
+//     const form = document.getElementById('form1')
+//     form.addEventListener('submit', addGuitar)
+//     //....
+//     //....
+// })
 
 
 fetch('http://127.0.0.1:3000/guitars').then((response) => {
@@ -19,11 +19,15 @@ function printGuitars(guitars) {
 
     guitars.forEach(guitar => {
         let guitarName = document.createElement('h3')
+        let guitarId = document.createElement('button')
+        guitarId.onclick = function() {deleteGuitar(guitar.id)}
         guitarName.innerText = guitar.name
+        guitarId.innerText = guitar.id
         let guitarColor = document.createElement('h4')
         guitarColor.innerText = guitar.color
 
         let guitarDiv = document.createElement('div')
+        guitarDiv.appendChild(guitarId)
         guitarDiv.appendChild(guitarName)
         guitarDiv.appendChild(guitarColor)
 
@@ -36,7 +40,7 @@ function searchId() {
     const id = document.getElementById('searchId').value
 
     fetch('http://127.0.0.1:3000/guitars/' + id).then((response) => {
-        if(response.status === 404) {
+        if (response.status === 404) {
             printGuitarId()
         } else {
             return response.json()
@@ -50,7 +54,7 @@ function printGuitarId(color) {
     let foundGuitarDiv = document.getElementById('foundGuitarDiv');
     foundGuitarDiv.innerHTML = '';
 
-    if(color) {
+    if (color) {
         let guitarName = document.createElement('h3')
         guitarName.innerText = color.name
         let guitarColor = document.createElement('h4')
@@ -61,7 +65,7 @@ function printGuitarId(color) {
         guitarDiv.appendChild(guitarColor)
 
         foundGuitarDiv.appendChild(guitarDiv)
-        
+
     } else {
         let errorResponese = document.createElement('h4');
         errorResponese.innerText = 'Hittar ingen gitarr';
@@ -71,24 +75,47 @@ function printGuitarId(color) {
 
 
 
-function addGuitar(event) {
-        event.preventDefault()
-        const id = document.getElementById('guitarId').value
-        console.log('id:', id)
-        const name = document.getElementById('guitarName').value
-        const color = document.getElementById('guitarColor').value
+function addGuitar(event) {
+    event.preventDefault()
+    const id = document.getElementById('guitarId').value
+    console.log('id:', id)
+    const name = document.getElementById('guitarName').value
+    const color = document.getElementById('guitarColor').value
 
-        fetch('http://127.0.0.1:3000/guitars').then((response) => {
-            if(response.status === 404) {
+    fetch('http://127.0.0.1:3000/guitars').then((response) => {
+        if (response.status === 404) {
 
-    
-            } else {
-                return response.json()
-            }
-        }).then(() => {
-    
-        })
-    
-    
-    }
-    
+
+        } else {
+            return response.json()
+        }
+    }).then(() => {
+        
+    })
+
+
+}
+
+
+function deleteGuitar(id) {
+
+
+    fetch('http://127.0.0.1:3000/guitars/delete/' + id, {
+  method: 'DELETE',
+})
+.then(res => res.json()) 
+.then(res => console.log(res))
+
+
+   
+    // fetch('http://127.0.0.1:3000/guitars/delete/' + id).then((response) => {
+    //     if (response.status === 404) {
+    //         console.log("cant find guitar")
+    //     } else {
+    //         return response.json()
+    //     }
+    // }).then((response) => {
+    //     response.send()
+    //     console.log("guitar is deleted")
+    // })
+}
