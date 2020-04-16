@@ -1,1 +1,12 @@
-[{"id":2,"name":"Gibson","color":"Sun-burst"},{"id":3,"name":"Gibson","color":"Sun-burst"},{"id":3,"name":"Gibson","color":"Sun-burst"}]
+[
+    {
+        "id": 1,
+        "name": "fender",
+        "color": "svart"
+    },
+    {
+        "id": 2,
+        "name": "hagströms",
+        "color": "beige"
+    }
+]
