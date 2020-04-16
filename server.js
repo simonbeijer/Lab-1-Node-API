@@ -13,17 +13,20 @@ app.use(express.static('public'));
 
 
 // Array of data
-const guitars = [{
-    id: 1,
-    name: 'fender',
-    color: 'svart',
-}, {
-    id: 2,
-    name: 'hagströms',
-    color: 'beige',
-}]
+const data = fs.readFileSync('guitars.json');
+let guitars = JSON.parse(data)
+console.log(guitars);
 
-
+function updateFile() {
+    
+    fs.writeFile('guitars.json', JSON.stringify(guitars), update);
+    function update(err) {
+        if(err) {
+            console.log('Something went wrong')
+        }
+        console.log('File updated')
+    }
+}
 
 
 
@@ -66,6 +69,7 @@ app.post('/guitars', (req, res) => {
     } else {
         guitars.push(guitar);
         res.status(201).send(guitar);
+        updateFile()
     }
 })
 
@@ -82,10 +86,10 @@ app.put('/guitars/:guitarId', (req, res) => {
     if (!foundGuitar) {
         res.status(404).send();
     } else {
-        console.log(req.params.name)
         foundGuitar.name = req.body.name
         foundGuitar.color = req.body.color
         res.send(foundGuitar)
+        updateFile()
     }
 })
 
@@ -105,6 +109,7 @@ app.delete('/guitars/:guitarId', (req, res) => {
         const index = guitars.indexOf(foundGuitar)
         guitars.splice(index, 1)
         res.send(foundGuitar)
+        updateFile()
     }
 })
 

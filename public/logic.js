@@ -1,3 +1,11 @@
+window.addEventListener('load', () => {
+    const form = document.getElementById('form1')
+    form.addEventListener('submit', addGuitar)
+    //....
+    //....
+})
+
+
 fetch('http://127.0.0.1:3000/guitars').then((response) => {
     return response.json()
 }).then((guitars) => {
@@ -63,22 +71,24 @@ function printGuitarId(color) {
 
 
 
-// function addGuitar() {
-//         const id = document.getElementById('guitarId').value
-//         const name = document.getElementById('guitarName').value
-//         const color = document.getElementById('guitarColor').value
+function addGuitar(event) {
+        event.preventDefault()
+        const id = document.getElementById('guitarId').value
+        console.log('id:', id)
+        const name = document.getElementById('guitarName').value
+        const color = document.getElementById('guitarColor').value
 
-//         fetch('http://127.0.0.1:3000/api/guitars').then((response) => {
-//             if(response.status === 404) {
+        fetch('http://127.0.0.1:3000/guitars').then((response) => {
+            if(response.status === 404) {
 
     
-//             } else {
-//                 return response.json()
-//             }
-//         }).then(() => {
+            } else {
+                return response.json()
+            }
+        }).then(() => {
     
-//         })
+        })
     
     
-//     }
+    }
     
