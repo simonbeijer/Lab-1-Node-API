@@ -1,12 +1,1 @@
-[
-    {
-        "id": 1,
-        "name": "fender",
-        "color": "svart"
-    },
-    {
-        "id": 2,
-        "name": "hagströms",
-        "color": "beige"
-    }
-]
+[{"id":1,"name":"Fender","color":"Black","price":"5990","type":"electric"},{"id":2,"name":"Hagströms","color":"Beige","price":"4990","type":"electric"}]

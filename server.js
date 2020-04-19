@@ -61,7 +61,9 @@ app.post('/guitars', (req, res) => {
     const guitar = {
         id: req.body.id,
         name: req.body.name,
-        color: req.body.color
+        color: req.body.color,
+        price: req.body.price,
+        type: req.body.type
     };
 
     if (!guitar) {
@@ -88,6 +90,8 @@ app.put('/guitars/:guitarId', (req, res) => {
     } else {
         foundGuitar.name = req.body.name
         foundGuitar.color = req.body.color
+        foundGuitar.price = req.body.price,
+        foundGuitar.type = req.body.type
         res.send(foundGuitar)
         updateFile()
     }

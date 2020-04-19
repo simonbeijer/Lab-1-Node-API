@@ -18,7 +18,9 @@ Content-Type: application/json
 {
     "id": 3,
     "name": "Gibson",
-    "color": "Sun-burst"
+    "color": "Blue",
+    "price":"8590",
+    "type":"electric"
 }
 
 ###
@@ -28,7 +30,9 @@ Content-Type: application/json
 
 {   
     "name": "Gibson",
-    "color": "Sun-burst"
+    "color": "Sun-burst",
+    "price":"14990",
+    "type":"acoustic"
 }
 
 ###
