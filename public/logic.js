@@ -30,7 +30,7 @@ function printGuitars(guitars) {
         let guitarPrice = document.createElement('h5')
         let guitarType = document.createElement('h5')
         guitarColor.innerText = guitar.color
-        guitarPrice.innerText = guitar.price
+        guitarPrice.innerText = guitar.price + ":-"
         guitarType.innerText = guitar.type
         guitarId.innerText = "id: " + guitar.id
 
@@ -79,6 +79,7 @@ function printGuitarId(guitar) {
         guitarType.innerText = guitar.type
 
         let guitarDiv = document.createElement('div')
+        guitarDiv.style.cssText = "margin-left: 1rem;"
         guitarDiv.appendChild(guitarName)
         guitarDiv.appendChild(guitarColor)
         guitarDiv.appendChild(guitarPrice)
@@ -88,7 +89,7 @@ function printGuitarId(guitar) {
 
     } else {
         let errorResponese = document.createElement('h4');
-        foundGuitarDiv.style.cssText = "border:black solid 1px;"
+        foundGuitarDiv.style.cssText = "border:black solid 1px; margin-left: 1rem;"
         errorResponese.innerText = 'Hittar ingen gitarr';
         foundGuitarDiv.appendChild(errorResponese)
     }

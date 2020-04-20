@@ -3,7 +3,8 @@
 REST API
 
 Detta är ett rest api skapat med hjälp av Node.js och express.
-Gjort för kursen dynamisk webbutveckling på medieinstitutet.
+För kursen dynamisk webbutveckling på medieinstitutet.
+Tanken med kursen är att lära sig mer av back-end i webbutveckling med hjälp av Node.js.
 Uppgiften är att skapa ett rest api med crud funktionalitet för sparad data.
 
 Samtliga delar för G och VG är uppfyllda med
@@ -17,8 +18,8 @@ Samtliga delar för G och VG är uppfyllda med
 Starta server
 
 - Node.js behövs 
-- sedan
 - $ npm install
+- $ node server.js
 
 
 RepoLänk https://github.com/simonbeijer/Lab-1-Node-API

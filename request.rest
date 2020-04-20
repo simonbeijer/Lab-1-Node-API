@@ -9,14 +9,13 @@ GET http://localhost:3000/guitars
 
 GET http://localhost:3000/guitars/1
 
-
 ###
 
 POST http://localhost:3000/guitars
 Content-Type: application/json
 
 {
-    "id": 3,
+    "id": 4,
     "name": "Gibson",
     "color": "Blue",
     "price":"8590",
@@ -28,18 +27,17 @@ Content-Type: application/json
 PUT http://localhost:3000/guitars/1
 Content-Type: application/json
 
-{   
-    "name": "Gibson",
-    "color": "Sun-burst",
-    "price":"14990",
-    "type":"acoustic"
+{
+    "id":1,
+    "name":"Fender",
+    "color":"Black and white",
+    "price":"4955",
+    "type":"electric"
 }
 
 ###
 
-
 DELETE http://localhost:3000/guitars/delete/2
 Content-Type: application/json
-
 
 ###
