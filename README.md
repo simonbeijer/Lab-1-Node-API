@@ -15,9 +15,10 @@ Samtliga delar för G och VG är uppfyllda med
 - GET anrop för att hämta specifikt objekt
 
 Starta server
-Node.js behövs 
-sedan
-$ npm install
+
+- Node.js behövs 
+- sedan
+- $ npm install
 
 
 RepoLänk https://github.com/simonbeijer/Lab-1-Node-API
