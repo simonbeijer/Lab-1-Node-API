@@ -17,28 +17,31 @@ function printGuitars(guitars) {
     let printGuitarsContainer = document.getElementById('guitars')
 
     guitars.forEach(guitar => {
-        let guitarName = document.createElement('h3')
-        let guitarId = document.createElement('button')
+        let guitarName = document.createElement('h4')
+        let guitarId = document.createElement('h5')
+        let guitarIdBtn = document.createElement('button')
         let update = document.createElement('button')
-        guitarId.onclick = function () { deleteGuitar(guitar.id) }
+        guitarIdBtn.onclick = function () { deleteGuitar(guitar.id) }
         update.onclick = function () { updateGuitarDiv(guitar.id, guitar.name, guitar.color, guitar.price, guitar.type) }
         guitarName.innerText = guitar.name
-        guitarId.innerText = "Delete"
+        guitarIdBtn.innerText = "Delete"
         update.innerText = "Update"
-        let guitarColor = document.createElement('h4')
-        let guitarPrice = document.createElement('h4')
-        let guitarType = document.createElement('h4')
+        let guitarColor = document.createElement('h5')
+        let guitarPrice = document.createElement('h5')
+        let guitarType = document.createElement('h5')
         guitarColor.innerText = guitar.color
         guitarPrice.innerText = guitar.price
         guitarType.innerText = guitar.type
+        guitarId.innerText = "id: " + guitar.id
 
         let guitarDiv = document.createElement('div')
+        guitarDiv.appendChild(guitarId)
         guitarDiv.appendChild(guitarName)
         guitarDiv.appendChild(guitarColor)
         guitarDiv.appendChild(guitarPrice)
         guitarDiv.appendChild(guitarType)
         guitarDiv.appendChild(update)
-        guitarDiv.appendChild(guitarId)
+        guitarDiv.appendChild(guitarIdBtn)
 
 
         printGuitarsContainer.appendChild(guitarDiv)
