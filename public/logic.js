@@ -33,12 +33,12 @@ function printGuitars(guitars) {
         guitarType.innerText = guitar.type
 
         let guitarDiv = document.createElement('div')
-        guitarDiv.appendChild(update)
-        guitarDiv.appendChild(guitarId)
         guitarDiv.appendChild(guitarName)
         guitarDiv.appendChild(guitarColor)
         guitarDiv.appendChild(guitarPrice)
         guitarDiv.appendChild(guitarType)
+        guitarDiv.appendChild(update)
+        guitarDiv.appendChild(guitarId)
 
 
         printGuitarsContainer.appendChild(guitarDiv)
