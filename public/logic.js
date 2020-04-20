@@ -1,8 +1,7 @@
 window.addEventListener('load', () => {
     const form = document.getElementById('formAdd')
     form.addEventListener('submit', addGuitar)
-    //....
-    //....
+
 })
 
 
@@ -22,7 +21,7 @@ function printGuitars(guitars) {
         let guitarId = document.createElement('button')
         let update = document.createElement('button')
         guitarId.onclick = function () { deleteGuitar(guitar.id) }
-        update.onclick = function () { updateGuitarDiv(guitar.id, guitar.name, guitar.color)}
+        update.onclick = function () { updateGuitarDiv(guitar.id, guitar.name, guitar.color, guitar.price, guitar.type) }
         guitarName.innerText = guitar.name
         guitarId.innerText = "Delete"
         update.innerText = "Update"
@@ -40,7 +39,7 @@ function printGuitars(guitars) {
         guitarDiv.appendChild(guitarColor)
         guitarDiv.appendChild(guitarPrice)
         guitarDiv.appendChild(guitarType)
-        
+
 
         printGuitarsContainer.appendChild(guitarDiv)
     });
@@ -81,9 +80,9 @@ function printGuitarId(guitar) {
         guitarDiv.appendChild(guitarColor)
         guitarDiv.appendChild(guitarPrice)
         guitarDiv.appendChild(guitarType)
-        foundGuitarDiv.style.cssText = "border:black solid 1px;"
+        foundGuitarDiv.style.cssText = "border:black solid 1px; width: 10rem;"
         foundGuitarDiv.appendChild(guitarDiv)
-        
+
     } else {
         let errorResponese = document.createElement('h4');
         foundGuitarDiv.style.cssText = "border:black solid 1px;"
@@ -127,49 +126,43 @@ function deleteGuitar(id) {
         .then(res => console.log(res))
 
     location.reload();
-
-    // fetch('http://127.0.0.1:3000/guitars/delete/' + id).then((response) => {
-    //     if (response.status === 404) {
-    //         console.log("cant find guitar")
-    //     } else {
-    //         return response.json()
-    //     }
-    // }).then((response) => {
-    //     response.send()
-    //     console.log("guitar is deleted")
-    // })
 }
 
 
 let nr = 0;
-function updateGuitarDiv(id, name, color) {
-    if(nr < 1) {
-        nr ++ 
+function updateGuitarDiv(id, name, color, price, type) {
+    if (nr < 1) {
+        nr++
         let updateGuitarDiv = document.getElementById('updateGuitarDiv');
-        
+
         let guitarName = document.createElement('input');
         guitarName.value = name;
         let guitarColor = document.createElement('input');
         guitarColor.value = color;
+        let guitarPrice = document.createElement('input');
+        guitarPrice.value = price;
+        let guitarType = document.createElement('input');
+        guitarType.value = type;
         let submit = document.createElement('button');
         submit.innerText = "Update"
-        submit.onclick = function () {updateGuitar(id, guitarName.value, guitarColor.value)}
-        
+        submit.onclick = function () { updateGuitar(id, guitarName.value, guitarColor.value, guitarPrice.value, guitarType.value) }
+
         let guitarDiv = document.createElement('div')
-        guitarDiv.cssText = "background: cadetblue; display: flex; justify-content: space-around; align-items: center; height: 5rem;"
         guitarDiv.appendChild(guitarName)
         guitarDiv.appendChild(guitarColor)
+        guitarDiv.appendChild(guitarPrice)
+        guitarDiv.appendChild(guitarType)
         guitarDiv.appendChild(submit)
-        
+        guitarDiv.style.cssText = "background: cadetblue; display: flex; justify-content: space-around; align-items: center; height: 5rem;"
+
         updateGuitarDiv.appendChild(guitarDiv)
     }
-        
+
 }
 
-function updateGuitar(id, updateName, updateColor) {
-
-    console.log(id, updateName, updateColor)
-    let guitar = {name: updateName, color: updateColor}
+function updateGuitar(id, updateName, updateColor, updatePrice, updateType) {
+    nr--;
+    let guitar = { name: updateName, color: updateColor, price: updatePrice, type: updateType }
     fetch('http://127.0.0.1:3000/guitars/' + id, {
         method: "PUT",
         headers: {

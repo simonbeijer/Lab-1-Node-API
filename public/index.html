@@ -10,7 +10,7 @@
 </head>
 
 <body style="background-color: #c7d7d8; max-width: 1200px; margin: auto;">
-        <h1 style="padding: 1rem">API</h1>
+    <h1 style="padding: 1rem">API</h1>
     <div class="all" style="display: flex; justify-content: space-evenly; align-items: center;">
 
         <div class="left" style="width: 20%">
@@ -19,34 +19,42 @@
         </div>
 
         <div class="right" style="width: 60%">
-                <div
-                    style="background: cadetblue; display: flex; justify-content: space-evenly; align-items: center; height: 5rem;">
-                    <input id="searchId" type="text">
-                    <button onclick="searchId()">Sök Gitarr</button>
-                </div>
-                <br>
+            <div
+                style="background: cadetblue; display: flex; justify-content: space-evenly; align-items: center; height: 5rem;">
+                <label>Skriv in ett id för att vissa gitarr</label>
+                <input id="searchId" type="text" value="1">
+                <button onclick="searchId()">Sök Gitarr</button>
+            </div>
+            <br>
 
-                <form id="formAdd"
-                    style="background: cadetblue; display: flex; justify-content: space-around; align-items: center; height: 5rem; flex-wrap: wrap; ">
-                    <input name="id" type="text" required>
-                    <input name="name" type="text" required>
-                    <input name="color" type="text" required>
-                    <input name="price" type="text" required>
-                    <input name="type" type="text" required>
-                    <input type="submit" value="Lägg till gitarr">
-                </form>
-                <br>
-                <div id="updateGuitarDiv"
-                style="background: cadetblue; display: flex; justify-content: space-around; align-items: center; height: 5rem; ">
+            <form id="formAdd"
+                style="background: cadetblue; display: flex; justify-content: space-around; align-items: center; height: 5rem; flex-wrap: wrap; ">
+                <label>id</label>
+                <input name="id" type="text" required>
+                <label>name</label>
+                <input name="name" type="text" required>
+                <label>color</label>
+                <input name="color" type="text" required>
+                <label>price</label>
+                <input name="price" type="text" required>
+                <label>type</label>
+                <input name="type" type="text" required>
+                <input type="submit" value="Lägg till gitarr">
+            </form>
+            <br>
+            <div id="updateGuitarDiv">
 
-                </div>
- 
+            </div>
+
         </div>
     </div>
     <div id="uppdate">
-        
+
     </div>
-    <div id="foundGuitarDiv"></div>
+    <div style=" display: flex;justify-content: center; align-items: center">
+
+        <div id="foundGuitarDiv"></div>
+    </div>
 </body>
 
 </html>
