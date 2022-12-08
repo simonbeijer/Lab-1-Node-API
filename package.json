@@ -19,6 +19,6 @@
   "homepage": "https://github.com/simonbeijer/Lab-1-Node-API#readme",
   "dependencies": {
     "chalk": "^4.0.0",
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   }
 }
